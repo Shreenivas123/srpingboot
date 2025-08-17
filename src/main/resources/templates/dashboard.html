@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #220de2;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            padding-bottom: 5rem; /* Add padding to prevent overlap with footer */
+        }
+        .profile-photo {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .experience {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        .experience h2 {
+            color: #2b9560;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem; /* Reduced padding */
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 th:text="${title}">Dashboard</h1>
+    </header>
+    <main>
+        <img th:src="${photoUrl}" alt="Profile Photo" class="profile-photo">
+        <h2 th:text="${name}">Your Full Name</h2>
+        <p th:text="${message}">Welcome to my professional portfolio!</p>
+        <div class="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li th:each="exp : ${experience}" th:text="${exp}">Experience Item</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/Shreenivas123" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/shreenivasa-y-g-319249248/" target="_blank">LinkedIn</a>
+    </footer>
+</body>
+</html>
